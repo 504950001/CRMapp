@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/app.js"></script>
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+		</style>
+		<script>
+			mui.init();
+		</script>
+
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			function geoInf(position) {
+				var str = "";
+				str += "地址：" + position.addresses + "\n"; //获取地址信息
+				var codns = position.coords; //获取地理坐标信息；
+				var lat = codns.latitude; //获取到当前位置的纬度；
+				str += "纬度：" + lat + "\n";
+				var longt = codns.longitude; //获取到当前位置的经度
+				str += "经度：" + longt + "\n";
+				console.log("位置信息："+str);
+				document.getElementById("output").innerText=str;
+			}
+			function getPos() {
+				console.log("获取位置信息:");
+				plus.geolocation.getCurrentPosition(geoInf, function(e) {
+					console.log("获取位置信息失败：" + e.message);
+				});
+			}
+		</script>
+		<style type="text/css">
+			#pull {
+				width: 24px;
+				height: 100%;
+				display: inline-block;
+				margin: 0 1em;
+			}
+			
+			#icon {
+				height: 24px;
+				vertical-align: middle;
+			}
+			
+			@-webkit-keyframes spin {
+				0% {
+					-webkit-transform: rotate(0deg);
+				}
+				100% {
+					-webkit-transform: rotate(360deg);
+				}
+			}
+		</style>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">地图定位</h1>
+		</header>
+		<div class="mui-content">
+			<a onclick="getPos();">获取设备位置信息</a>
+			<div id="output">
+				Geolocation可获取设备位置信息，包括经度、纬度信息。
+			</div>
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<script src="../../js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/app.js"></script>
+		<style>
+			html,body {
+				background-color: #efeff4;
+			}
+		</style>
+		<script>
+			mui.init();
+		</script>
+	</head>
+
+	<body onload="loadPage();">
+
+<script type="text/javascript" charset="utf-8">
+	var ws = null,wo = null;
+	
+	mui.plusReady(function(){
+		// 获取自身窗口
+		ws = plus.webview.currentWebview();
+		wo = ws.opener();
+	});
+
+	// 刷新页面,从数据库中更新
+	function onRefresh() {
+		setTimeout(function() {
+			announcement();
+			ws.endPullToRefresh();
+			wo.evalJS("pullReset()");
+		}, 2000);
+	}
+</script>
+
+<div class="mui-content">
+    <ul id="ul" class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+    	
+    </ul>
+    <script type="text/javascript">
+    	
+    	function announcement() {
+			mui.ajax(serviceIP+"/CRMsystem/admin/announcementList", {
+				dataType: 'json',
+					type: 'post',
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					success: function(data){
+						var myU ="";
+						$.each(data, function(index, item) {
+							//循环获取数据 
+						     var title = data[index].title; 
+						     var mydate = data[index].date; 
+						     var content = data[index].content; 
+						     var myContent="<li class='mui-table-view-cell'><div class='mui-table'><div class='mui-table-cell mui-col-xs-10'><h4 class='mui-ellipsis'>标题："+title+"</h4><h5>日期："+mydate+"</h5><p class='mui-h6 mui-ellipsis'>内容："
+						     +content+"</p></div></div></li>"
+						     myU+=myContent;
+						     $("#ul").html(myU);
+						});
+						localStorage.setItem("announcement", JSON.stringify(data));
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						alert("获取失败");
+						console.log("XMLHttpRequest:" + XMLHttpRequest + ",textStatus:" + textStatus + ",errorThrown:" + errorThrown);
+					}
+			});
+    	}
+    	function loadPage() {
+			var announcementList ="";
+			var data=jQuery.parseJSON(localStorage.getItem("announcement"));
+			
+			if(data==null){announcement();console.log("如果localStorage里面为空，则连接到数据库中") ;}
+			$.each(data, function(index, item) {
+				//循环获取数据 
+			     var title = data[index].title; 
+			     var mydate = data[index].date; 
+			     var content = data[index].content; 
+			     var myContent="<li class='mui-table-view-cell'><div class='mui-table'><div class='mui-table-cell mui-col-xs-10'><h4 class='mui-ellipsis'>标题："+title+"</h4><h5>日期："+mydate+"</h5><p class='mui-h6 mui-ellipsis'>内容："
+			     +content+"</p></div></div></li>"
+			     announcementList+=myContent;
+			     $("#ul").html(announcementList);
+			});
+    	}
+    </script>
+</div>
+
+</body>
+</html>

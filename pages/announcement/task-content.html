@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<script src="../../js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/app.js"></script>
+		<style>
+			html,body {
+				background-color: #efeff4;
+			}
+		</style>
+		<script>
+			mui.init();
+		</script>
+	</head>
+
+	<body onload="loadPage();">
+
+<script type="text/javascript" charset="utf-8">
+	var ws = null,wo = null;
+	
+	mui.plusReady(function(){
+		// 获取自身窗口
+		ws = plus.webview.currentWebview();
+		wo = ws.opener();
+	});
+
+	// 刷新页面,从数据库中更新
+	function onRefresh() {
+		setTimeout(function() {
+			task();
+			ws.endPullToRefresh();
+			wo.evalJS("pullReset()");
+		}, 2000);
+	}
+</script>
+
+<div class="mui-content">
+    <ul id="ul" class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+    	
+    </ul>
+    <script type="text/javascript">
+    	
+    	function task() {
+    		var taskJson=jQuery.parseJSON(localStorage.getItem("employee"));
+    		var employeeInfo=eval(taskJson).id+":"+eval(taskJson).name;
+    		console.log("employeeInfo:"+employeeInfo);
+			mui.ajax(serviceIP+"/CRMsystem/admin/taskList", {
+				dataType: 'json',
+					type: 'post',
+					data:{"employeeInfo":employeeInfo},
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					success: function(data){
+						var myTask ="";
+						$.each(data, function(index, item) {
+							//循环获取数据 
+						     var title = data[index].title; 
+						     var mydate = data[index].date; 
+						     var content = data[index].content; 
+						     var myContent="<li class='mui-table-view-cell'><div class='mui-table'><div class='mui-table-cell mui-col-xs-10'><h4 class='mui-ellipsis'>任务名："+title+"</h4><h5>日期："+mydate+"</h5><p class='mui-h6 mui-ellipsis'>任务内容："
+						     +content+"</p></div></div></li>"
+						     myTask+=myContent;
+						     $("#ul").html(myTask);
+						});
+						//alert("myTask"+myTask);
+						localStorage.setItem("task", JSON.stringify(data));
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						alert("获取失败");
+						console.log("XMLHttpRequest:" + XMLHttpRequest + ",textStatus:" + textStatus + ",errorThrown:" + errorThrown);
+					}
+			});
+    	}
+    	function loadPage() {
+			var taskList ="";
+			//alert(localStorage.getItem("task"));
+			var data=jQuery.parseJSON(localStorage.getItem("task"));
+			//如果localStorage里面为空，则连接到数据库中
+			if(data==null){task();}
+			$.each(data, function(index, item) {
+				//循环获取数据 
+			     var title = data[index].title; 
+			     var mydate = data[index].date; 
+			     var content = data[index].content; 
+			     var myContent="<li class='mui-table-view-cell'><div class='mui-table'><div class='mui-table-cell mui-col-xs-10'><h4 class='mui-ellipsis'>标题："+title+"</h4><h5>日期："+mydate+"</h5><p class='mui-h6 mui-ellipsis'>内容："
+			     +content+"</p></div></div></li>"
+			     taskList+=myContent;
+			     $("#ul").html(taskList);
+			});
+    	}
+    </script>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,565 @@
+{
+	"main.html": {
+		"refer": [
+			"setting.html",
+			"pages/schedule/index.html",
+			"pages/AAA.html",
+			"pages/pullrefresh-down-main.html",
+			"pages/pulldown-with-plus-main-custom.html",
+			"list.html",
+			"pages/list2.html",
+			"pages/list4.html",
+			"pages/list.html",
+			"pages/list3.html",
+			"list4.html",
+			"list2.html",
+			"list3.html",
+			"pulldown-with-plus-main-custom.html",
+			"pulldown-with-plus-content-custom.html"
+		],
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/own.css",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"fonts/iconfont.ttf",
+			"js/mui.enterfocus.js",
+			"pages/schedule/index.html",
+			"pages/AAA.html",
+			"pages/pullrefresh-down-main.html",
+			"pages/pulldown-with-plus-main-custom.html",
+			"list.html",
+			"pages/list.html",
+			"list3.html"
+		]
+	},
+	"login.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/mui.enterfocus.js",
+			"images/sinaweibo.png",
+			"images/weixin.png",
+			"images/qq.png",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"main.html",
+			"reg.html",
+			"tab-webview-main.html",
+			"unlock.html",
+			"forget_password.html"
+		]
+	},
+	"setting.html": {
+		"resources": [
+			"libs/easymob-webim-sdk/easemob.im-1.0.5.js",
+			"fonts/mui.ttf",
+			"libs/easymob-webim-sdk/json2.js",
+			"libs/easymob-webim-sdk/jquery-1.11.1.js",
+			"js/mui.locker.js",
+			"js/feedback.js",
+			"css/feedback-page.css",
+			"js/feedback-page.js",
+			"libs/easymob-webim-sdk/strophe-custom-2.0.0.js",
+			"js/mui.view.js",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/iconfont-tianjia.png"
+		],
+		"refer": [
+			"login.html"
+		]
+	},
+	"reg.html": {
+		"refer": [
+			"login.html"
+		],
+		"resources": []
+	},
+	"pages/schedule/add.html": {
+		"resources": [
+			"pages/schedule/js/app/add.js",
+			"pages/schedule/js/lib/qiao/qiao.h.js",
+			"pages/schedule/js/mui.min.js",
+			"pages/schedule/js/lib/jquery/jquery-1.11.2.min.js",
+			"pages/schedule/css/mui.min.css",
+			"pages/schedule/fonts/mui.ttf"
+		],
+		"refer": []
+	},
+	"pages/schedule/index.html": {
+		"resources": [
+			"pages/schedule/fonts/mui.ttf",
+			"pages/schedule/js/lib/qiao/qiao.h.js",
+			"pages/schedule/js/mui.min.js",
+			"pages/schedule/js/lib/jquery/jquery-1.11.2.min.js",
+			"pages/schedule/list.html",
+			"pages/schedule/css/mui.min.css",
+			"pages/schedule/js/app/index.js",
+			"main.html"
+		],
+		"refer": [
+			"pages/schedule/menu.html",
+			"pages/schedule/add.html",
+			"pages/schedule/detail.html",
+			"pages/schedule/list.html",
+			"main.html"
+		]
+	},
+	"pages/schedule/detail.html": {
+		"resources": [
+			"pages/schedule/js/app/detail.js",
+			"pages/schedule/js/lib/qiao/qiao.h.js",
+			"pages/schedule/js/mui.min.js",
+			"pages/schedule/js/lib/jquery/jquery-1.11.2.min.js",
+			"pages/schedule/css/mui.min.css"
+		],
+		"refer": []
+	},
+	"pages/schedule/list.html": {
+		"resources": [
+			"pages/schedule/js/lib/qmask/qmask-3.0.js",
+			"pages/schedule/js/lib/qmask/qmask-3.0.css",
+			"pages/schedule/css/mui.min.css",
+			"pages/schedule/js/app/list.js",
+			"pages/schedule/js/lib/qiao/qiao.h.js",
+			"pages/schedule/js/mui.min.js",
+			"pages/schedule/js/lib/jquery/jquery-1.11.2.min.js"
+		],
+		"refer": []
+	},
+	"pages/schedule/menu.html": {
+		"resources": [
+			"pages/schedule/js/app/menu.js",
+			"pages/schedule/js/lib/qiao/qiao.h.js",
+			"pages/schedule/js/mui.min.js",
+			"pages/schedule/js/lib/jquery/jquery-1.11.2.min.js",
+			"pages/schedule/css/mui.min.css",
+			"pages/schedule/css/app/menu.css"
+		],
+		"refer": []
+	},
+	"pages/AAA.html": {
+		"resources": [
+			"js/app.js",
+			"css/own.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"js/mui.enterfocus.js",
+			"pages/AAAcontent.html",
+			"main.html"
+		],
+		"refer": [
+			"pages/AAAcontent.html",
+			"main.html"
+		]
+	},
+	"pages/AAAcontent.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"pages/pullrefresh-down-main.html": {
+		"resources": [
+			"pages/pullrefresh-down-content.html",
+			"main.html"
+		],
+		"refer": [
+			"pages/pullrefresh-down-content.html",
+			"main.html"
+		]
+	},
+	"pages/pulldown-with-plus-main-custom.html": {
+		"resources": [
+			"pages/pulldown-with-plus-content-custom.html",
+			"main.html",
+			"js/app.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"images/pull_arrow.png",
+			"images/pull_fresh.png"
+		],
+		"refer": [
+			"pages/pulldown-with-plus-content-custom.html",
+			"main.html"
+		]
+	},
+	"list.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"css/own.css",
+			"css/iconfont.css",
+			"fonts/iconfont.ttf",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"pages/announcement/announcement-main.html"
+		],
+		"refer": [
+			"pages/pulldown-with-plus-main-custom.html",
+			"pages/schedule/index.html",
+			"pages/views/index.html",
+			"pages/schedule/menu.html",
+			"pages/schedule/detail.html",
+			"pages/schedule/add.html",
+			"pages/mapLocation.html",
+			"pages/maps_map.html",
+			"pages/announcement/announcement.html",
+			"pages/announcement/pulldown-with-plus-main-custom.html",
+			"pages/announcement/announcement-main.html",
+			"pages/announcement/report.html",
+			"pages/announcement/report-main.html",
+			"pages/announcement/task-main.html",
+			"pages/announcement/customer-main.html"
+		]
+	},
+	"pages/views/index.html": {
+		"resources": [
+			"pages/@/js/app/index.js",
+			"pages/@/css/mui.min.css",
+			"pages/@/fonts/mui.ttf",
+			"pages/@/js/lib/jquery/jquery-1.11.2.min.js",
+			"pages/@/js/mui.min.js",
+			"pages/views/list.html",
+			"pages/@/js/lib/qiao/qiao.h.js"
+		],
+		"refer": [
+			"pages/views/detail.html",
+			"pages/views/menu.html",
+			"pages/views/add.html",
+			"pages/views/list.html"
+		]
+	},
+	"pages/views/detail.html": {
+		"resources": [
+			"pages/@/js/app/detail.js"
+		],
+		"refer": []
+	},
+	"pages/views/menu.html": {
+		"resources": [
+			"pages/@/js/app/menu.js",
+			"pages/@/css/app/menu.css"
+		],
+		"refer": []
+	},
+	"pages/views/add.html": {
+		"resources": [
+			"pages/@/js/app/add.js"
+		],
+		"refer": []
+	},
+	"pages/views/list.html": {
+		"resources": [
+			"pages/@/js/lib/qmask/qmask-3.0.css",
+			"pages/@/js/app/list.js",
+			"pages/@/js/lib/qmask/qmask-3.0.js"
+		],
+		"refer": []
+	},
+	"views/index.html": {
+		"resources": [
+			"@/js/app/index.js",
+			"views/list.html",
+			"@/js/lib/jquery/jquery-1.11.2.min.js",
+			"@/fonts/mui.ttf",
+			"@/css/mui.min.css",
+			"@/js/lib/qiao/qiao.h.js",
+			"@/js/mui.min.js"
+		],
+		"refer": [
+			"views/add.html",
+			"views/list.html",
+			"views/detail.html",
+			"views/menu.html"
+		]
+	},
+	"views/add.html": {
+		"resources": [
+			"@/js/app/add.js"
+		],
+		"refer": []
+	},
+	"views/list.html": {
+		"resources": [
+			"@/js/app/list.js",
+			"@/js/lib/qmask/qmask-3.0.js",
+			"@/js/lib/qmask/qmask-3.0.css"
+		],
+		"refer": []
+	},
+	"views/detail.html": {
+		"resources": [
+			"@/js/app/detail.js"
+		],
+		"refer": []
+	},
+	"views/menu.html": {
+		"resources": [
+			"@/js/app/menu.js",
+			"@/css/app/menu.css"
+		],
+		"refer": []
+	},
+	"list2.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"list3.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"tab-webview-main.html": {
+		"resources": [
+			"tab-webview-subpage-phone.html",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"tab-webview-subpage-phone.html",
+			"tab-webview-subpage-map.html",
+			"tab-webview-subpage-chat.html",
+			"tab-webview-subpage-contact.html"
+		]
+	},
+	"tab-webview-subpage-chat.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"pages/schedule/index.html",
+			"pages/pulldown-with-plus-main-custom.html"
+		],
+		"refer": [
+			"pages/schedule/index.html"
+		]
+	},
+	"list4.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"login.html",
+			"forget_password.html",
+			"setting.html",
+			"pages/userInfo.html"
+		]
+	},
+	"pulldown-with-plus-main-custom.html": {
+		"resources": [
+			"images/pull_arrow.png",
+			"fonts/mui.ttf",
+			"pulldown-with-plus-content-custom.html"
+		],
+		"refer": [
+			"pulldown-with-plus-content-custom.html"
+		]
+	},
+	"pulldown-with-plus-content-custom.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"forget_password.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css"
+		],
+		"refer": []
+	},
+	"pages/mapLocation.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf"
+		],
+		"refer": []
+	},
+	"pages/maps_map.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/immersed.js",
+			"js/common.js",
+			"pages/maps_map_sub.html"
+		],
+		"refer": [
+			"pages/maps_map_sub.html"
+		]
+	},
+	"pages/pulldown-with-plus-content-custom.html": {
+		"resources": [
+			"fonts/mui.ttf"
+		]
+	},
+	"unlock.html": {
+		"resources": [
+			"js/mui.locker.js"
+		]
+	},
+	"pages/announcement/pulldown-with-plus-main-custom.html": {
+		"resources": [
+			"images/pull_arrow.png",
+			"pages/announcement/pulldown-with-plus-content-custom.html",
+			"images/pull_fresh.png"
+		],
+		"refer": [
+			"pages/announcement/pulldown-with-plus-content-custom.html"
+		]
+	},
+	"pages/announcement/announcement-main.html": {
+		"resources": [
+			"images/pull_arrow.png",
+			"images/pull_fresh.png",
+			"pages/announcement/announcement-content.html",
+			"js/app.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"pages/announcement/announcement-content.html"
+		]
+	},
+	"pages/announcement/announcement-content.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"js/jquery-2.1.1.min.js"
+		]
+	},
+	"pages/announcement/report.html": {
+		"resources": [
+			"pages/announcement/report.html",
+			"js/app.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"pages/announcement/report.html"
+		]
+	},
+	"pages/announcement/report-main.html": {
+		"resources": [
+			"pages/announcement/report-content.html",
+			"js/app.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"pages/announcement/report-content.html"
+		]
+	},
+	"pages/announcement/report-content.html": {
+		"resources": [
+			"pages/announcement/report-content.html",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"pages/announcement/report-content.html"
+		]
+	},
+	"pages/announcement/task-main.html": {
+		"resources": [
+			"images/pull_arrow.png",
+			"pages/announcement/task-content.html",
+			"images/pull_fresh.png",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"pages/announcement/task-content.html"
+		]
+	},
+	"pages/announcement/task-content.html": {
+		"resources": [
+			"js/jquery-2.1.1.min.js",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"pages/announcement/customer-main.html": {
+		"resources": [
+			"images/pull_arrow.png",
+			"images/pull_fresh.png",
+			"pages/announcement/task-content.html",
+			"js/app.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"pages/announcement/customer-content.html"
+		],
+		"refer": [
+			"pages/announcement/task-content.html",
+			"pages/announcement/customer-content.html"
+		]
+	},
+	"pages/announcement/customer-content.html": {
+		"resources": [
+			"js/jquery-2.1.1.min.js",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"pages/userInfo.html": {
+		"resources": [
+			"libs/easymob-webim-sdk/easemob.im-1.0.5.js",
+			"libs/easymob-webim-sdk/json2.js",
+			"libs/easymob-webim-sdk/jquery-1.11.1.js",
+			"js/feedback.js",
+			"css/feedback-page.css",
+			"js/feedback-page.js",
+			"libs/easymob-webim-sdk/strophe-custom-2.0.0.js",
+			"js/mui.view.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/app.js",
+			"js/jquery-2.1.1.min.js"
+		]
+	}
+}

@@ -1,0 +1,54 @@
+
+.own-left-nav-color {
+	color: gray;
+}
+
+.own-main-color {
+	color: #007aff;
+}
+
+.own-gray-color {
+	background-color: #EBEBF1;
+}
+
+.own-black-color {
+	color: black;
+}
+
+.own-white-color{
+	color: white;
+}
+
+.own-text-through {
+	text-decoration: line-through;
+}
+
+.own-main-background-color {
+	background-color: #007aff;
+}
+
+.own-header-hidden {
+	display: none!important;
+}
+
+.own-content-padding {
+	padding-top: 0 !important;
+}
+
+.own-btn-blue {
+	color: #fff;
+	border: 1px solid #007aff;
+	background-color: #007aff;
+}
+
+.own-btn-blue.mui-active:enabled,
+.own-btn-blue:enabled:active {
+	color: #fff;
+	border: 1px solid #007aff;
+	background-color: #007aff;
+}
+
+.own-font-size {
+	font-size: 1em;
+}
+

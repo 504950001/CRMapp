@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/app.js"></script>
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+		</style>
+		<script>
+			mui.init();
+		</script>
+	</head>
+
+	<body onload="loadPage();">
+
+		<style type="text/css">
+			#pull {
+				width: 24px;
+				height: 100%;
+				display: inline-block;
+				margin: 0 1em;
+			}
+			
+			#icon {
+				height: 24px;
+				vertical-align: middle;
+			}
+			
+			@-webkit-keyframes spin {
+				0% {
+					-webkit-transform: rotate(0deg);
+				}
+				100% {
+					-webkit-transform: rotate(360deg);
+				}
+			}
+		</style>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">个人信息</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-card">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-hidden">
+						cared
+						<div id="M_Toggle" class="mui-switch mui-active">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>员工号<span class="mui-pull-right" id="idEmployee"></span></a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>姓名<span class="mui-pull-right" id="name"></span></a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>性别<span class="mui-pull-right" id="sex"></span></a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>电话<span class="mui-pull-right" id="telephone"></span></a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>邮箱<span class="mui-pull-right" id="email"></span></a>
+					</li>
+				</ul>
+			</div>
+			<script type="text/javascript">
+				function loadPage() {
+					var data=jQuery.parseJSON(localStorage.getItem("employee"));
+					var name=eval(data).name;
+					var sex=eval(data).sex;
+					var telephone=eval(data).telephone;
+					var email=eval(data).email;
+					document.getElementById("idEmployee").innerHTML=eval(data).id;
+					document.getElementById("name").innerHTML=name;
+					document.getElementById("sex").innerHTML=sex;
+					document.getElementById("telephone").innerHTML=telephone;
+					document.getElementById("email").innerHTML=email;
+				}
+			</script>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>CRM</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<style type="text/css">
+			#list {
+				/*避免导航边框和列表背景边框重叠，看起来像两条边框似得；*/
+				margin-top: -1px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<ul class="mui-table-view mui-hidden" style="margin-bottom:15px;">
+				<li class="mui-table-view-cell">cared
+					<div id="M_Toggle_Grid_Carded" class="mui-switch mui-active">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</li>
+			</ul>
+			<div id="home" class="mui-control-content mui-active">
+				<ul class="mui-table-view mui-grid-view mui-grid-9">
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="pages/announcement/announcement-main.html">
+							<span class="mui-icon mui-icon-home"></span>
+							<div class="mui-media-body">公告通知</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="pages/announcement/customer-main.html">
+							<span class="mui-icon mui-icon-gear"></span>
+							<div class="mui-media-body">客户管理</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="pages/announcement/report-main.html">
+							<span class="mui-icon mui-icon-chatbubble"></span>
+							<div class="mui-media-body">工作汇报</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="pages/announcement/task-main.html">
+							<span class="mui-icon mui-icon-search"></span>
+							<div class="mui-media-body">任务管理</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="pages/maps_map.html">
+							<span class="mui-icon mui-icon-location"></span>
+							<div class="mui-media-body">地图定位</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="pages/schedule/index.html">
+							<span class="mui-icon mui-icon-phone"></span>
+							<div class="mui-media-body">日程安排</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="#">
+							<span class="mui-icon mui-icon-email"></span>
+							<div class="mui-media-body">移动邮箱</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="#">
+							<span class="mui-icon mui-icon-info"></span>
+							<div class="mui-media-body">系统信息</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="pages/pulldown-with-plus-main-custom.html">
+							<span class="mui-icon mui-icon-more"></span>
+							<div class="mui-media-body">更多</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+		
+		<script>
+			var limit = 3,
+				count = 0;
+			mui.init({
+				preloadLimit: limit, //同时并存的预加载窗口数量
+				swipeBack: false,
+			});
+			(function($) {
+				$.plusReady(function() {
+					//初始化一级列表的预加载
+					$('#list>.mui-table-view-cell', document.body).each(function() {
+						//只预加载一级列表，二级列表在其展开时再预加载；
+						if (!this.classList.contains('mui-collapse')) {
+							var url = this.querySelector('a').getAttribute("href");
+							//预加载，默认使用url作为其id
+							$.preload({
+								url: url,
+							});
+							if (++count >= limit) {
+								return false;
+							}
+						}
+					});
+					//监听展开事件,预加载二级列表的前几个；
+					$('#list').on('expand', '.mui-collapse', function(e) {
+						count = 0;
+						$('.mui-table-view a', this).each(function() {
+							var url = this.getAttribute("href");
+							if (~url.indexOf('.html')) {
+								//单独处理侧滑导航的index
+								if (~url.indexOf('offcanvas-')) {
+									$.preload({
+										url: url,
+										styles: {
+											zindex: 9999
+										},
+									});
+								} else {
+									$.preload({
+										url: url,
+									});
+								}
+								if (++count >= limit) {
+									return false;
+								}
+							}
+						});
+					});
+					// 关闭启动界面
+					plus.navigator.closeSplashscreen();
+					//下拉刷新两个平台有区别；
+//					if ($.os.ios) {
+//						document.getElementById('pull-refresh-pandora').style.display = "none";
+//					} else if ($.os.android) {
+//						document.getElementById('pull-refresh-h5').style.display = "none";
+//						var list = document.querySelectorAll('.ios-only');
+//						if (list) {
+//							for (var i = 0; i < list.length; i++) {
+//								list[i].style.display = 'none';
+//							}
+//						}
+//					}
+				});
+				/**
+				 * 处理链接点击事件
+				 */
+				$.ready(function() {
+					$('body').on('tap', 'a', function(e) {
+						var id = this.getAttribute('href');
+						if (id) {
+							if (~id.indexOf('.html')) {
+								if (window.plus) {
+									//侧滑导航涉及Index问题，需要单独处理；
+									if (~id.indexOf('offcanvas-')) {
+										$.openWindow({
+											id: id,
+											url: this.href,
+											styles: {
+												zindex: 9999
+											},
+											preload: true
+										});
+									} else {
+										$.openWindow({
+											id: id,
+											url: this.href,
+											preload: true
+										});
+									}
+								} else {
+									document.location.href = this.href;
+								}
+							} else {
+								if (typeof plus !== 'undefined') {
+									plus.runtime.openURL(id);
+								}
+							}
+						}
+					});
+				});
+			})(mui);
+		</script>
+	</body>
+
+</html>

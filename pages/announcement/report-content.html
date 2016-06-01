@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/app.js"></script>
+		<style>
+			html,body {
+				background-color: #efeff4;
+			}
+		</style>
+		<script>
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+
+<div class="mui-content">
+	<div class="mui-content-padded" style="margin: 5px;">
+		<form class="mui-input-group">
+			<div class="mui-input-row">
+				<label>主题</label>
+				<input id="title" type="text" class="mui-input-clear" placeholder="汇报主题">
+			</div>
+			<input type="hidden" id="author" name="author" value="" />
+			<div class="mui-input-row" style="margin: 10px 5px;height: 300px;">
+				<label>内容</label>
+				<textarea id="content" rows="25" placeholder="汇报内容"></textarea>
+			</div>
+			<div class="mui-button-row">
+				<button class="mui-btn mui-btn-danger" onclick="resetFunction();">重置</button>
+				<button class="mui-btn mui-btn-primary" onclick="report();">确认</button>&nbsp;&nbsp;
+			</div>
+		</form>
+		
+	</div>
+</div>
+<script type="application/javascript">
+	function resetFunction(){
+		var title= document.getElementById("title");
+		var textareaA =document.getElementById("textarea");
+		title.innerHTML="";
+		textareaA.innerHTML="";
+	}
+	function report() {
+		var r_title=document.getElementById("title").value;
+		var r_content=document.getElementById("content").value;
+		var r_author=document.getElementById("author").value;
+		var jsonObj=JSON.parse(localStorage.getItem("employee"));
+			r_author=eval(jsonObj).name+"(ID:"+eval(jsonObj).id+")";
+		
+		mui.ajax(serviceIP+"/CRMsystem/employee/report", {
+			data:{"title":r_title,"author":r_author,"content":r_content},
+			dataType: 'text',//一定是text，因为传过来的值不是json格式所以用json报错
+				type: 'post',
+				async:false,
+				contentType: "application/x-www-form-urlencoded; charset=utf-8",
+				success: function(data){console.log("提交成功");alert("提交成功");},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("提交失败");
+					console.log(serviceIP+"/CRMsystem/employee/report");
+					console.log("XMLHttpRequest:" + XMLHttpRequest.status + ",textStatus:" + textStatus + ",errorThrown:" + errorThrown);
+				}
+		});
+}
+</script>
+
+<style type="text/css">
+	h5 {
+		margin: 5px 7px;
+	}
+</style>
+</body>
+</html>
