@@ -22,7 +22,7 @@
 		</script>
 	</head>
 
-	<body onload="loadPage();">
+	<body onload="task();">
 
 <script type="text/javascript" charset="utf-8">
 	var ws = null,wo = null;
@@ -71,27 +71,25 @@
 						localStorage.setItem("customer", JSON.stringify(data));
 					},
 					error: function(XMLHttpRequest, textStatus, errorThrown) {
-						alert("获取失败");
+						//alert("获取失败");
 						console.log("XMLHttpRequest:" + XMLHttpRequest + ",textStatus:" + textStatus + ",errorThrown:" + errorThrown);
+						var myCustomer ="";
+						//alert(localStorage.getItem("task"));
+						var data=jQuery.parseJSON(localStorage.getItem("customer"));
+						//如果localStorage里面为空，则连接到数据库中
+						if(data==null){task();}
+						$.each(data, function(index, item) {
+							//循环获取数据 
+						    var name = data[index].name; 
+						     var sex = data[index].sex; 
+						     var telephone = data[index].telephone; 
+						     var address = data[index].address; 
+						     var myContent="<li class='mui-table-view-cell'><div class='mui-table'><div class='mui-table-cell mui-col-xs-10'><h5 class='mui-ellipsis'>客户名："+name+"   性别："+sex+"</h5><h5>电话："+telephone+"</h5><p class='mui-h6 mui-ellipsis'>地址："
+						     +address+"</p></div></div></li>"
+						     myCustomer+=myContent;
+						     $("#ul").html(myCustomer);
+						});
 					}
-			});
-    	}
-    	function loadPage() {
-			var myCustomer ="";
-			//alert(localStorage.getItem("task"));
-			var data=jQuery.parseJSON(localStorage.getItem("customer"));
-			//如果localStorage里面为空，则连接到数据库中
-			if(data==null){task();}
-			$.each(data, function(index, item) {
-				//循环获取数据 
-			    var name = data[index].name; 
-			     var sex = data[index].sex; 
-			     var telephone = data[index].telephone; 
-			     var address = data[index].address; 
-			     var myContent="<li class='mui-table-view-cell'><div class='mui-table'><div class='mui-table-cell mui-col-xs-10'><h5 class='mui-ellipsis'>客户名："+name+"   性别："+sex+"</h5><h5>电话："+telephone+"</h5><p class='mui-h6 mui-ellipsis'>地址："
-			     +address+"</p></div></div></li>"
-			     myCustomer+=myContent;
-			     $("#ul").html(myCustomer);
 			});
     	}
     </script>

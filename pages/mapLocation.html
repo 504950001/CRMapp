@@ -67,13 +67,24 @@
 		</style>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">地图定位</h1>
+			<h1 class="mui-title">我的位置</h1>
 		</header>
 		<div class="mui-content">
-			<a onclick="getPos();">获取设备位置信息</a>
-			<div id="output">
-				Geolocation可获取设备位置信息，包括经度、纬度信息。
+			<div class="mui-card">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a onclick="getPos();" style="text-align: center;">获取设备位置信息</a>
+					</li>
+					<li class="mui-table-view-cell"></li>
+					<li class="mui-table-view-cell">
+						<div id="output">
+							Geolocation可获取设备位置信息，包括经度、纬度信息。
+						</div>
+					</li>
+				</ul>
 			</div>
+			
+			
 		</div>
 
 	</body>

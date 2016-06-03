@@ -34,11 +34,17 @@
 				</div>
 			</div>
 			<ul class="mui-table-view mui-table-view-chevron">
-				<li class="mui-table-view-cell">
+				<!--<li class="mui-table-view-cell">
 					<a id="modifyPassword" class="mui-navigate-right">密码修改</a>
-				</li>
+				</li>-->
 				<li class="mui-table-view-cell">
 					<a id="userInfo" class="mui-navigate-right">个人信息</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a id="systemInfo" class="mui-navigate-right">系统信息</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a id="location" class="mui-navigate-right">我的位置</a>
 				</li>
 				<li class="mui-table-view-cell">
 					<a id="settingPage" class="mui-navigate-right">设置</a>
@@ -102,14 +108,20 @@
 			}, false);
 		</script>
 		<script>
-			document.getElementById('modifyPassword').addEventListener('tap', function() {
-				mui.openWindow({url:'forget_password.html', id:'modifyPassword'});
-			});
+//			document.getElementById('modifyPassword').addEventListener('tap', function() {
+//				mui.openWindow({url:'forget_password.html', id:'modifyPassword'});
+//			});
 			document.getElementById('settingPage').addEventListener('tap', function() {
 				mui.openWindow({url:'setting.html', id:'settingPage'});
 			});
 			document.getElementById('userInfo').addEventListener('tap', function() {
-				mui.openWindow({url:'/pages/userInfo.html', id:'settingPage'});
+				mui.openWindow({url:'/pages/userInfo.html', id:'userInfoPage'});
+			});
+			document.getElementById('systemInfo').addEventListener('tap', function() {
+				mui.openWindow({url:'/pages/systemInfo.html', id:'systemInfoPage'});
+			});
+			document.getElementById('location').addEventListener('tap', function() {
+				mui.openWindow({url:'/pages/mapLocation.html', id:'locationPage'});
 			});
 		</script>
 	</body>

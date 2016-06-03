@@ -49,7 +49,7 @@
 		</style>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">个人信息</h1>
+			<h1 class="mui-title">系统信息</h1>
 		</header>
 		<div class="mui-content">
 			<div class="mui-card">
@@ -61,23 +61,19 @@
 						</div>
 					</li>
 					<li class="mui-table-view-cell">
-						<a>员工号<span class="mui-pull-right" id="idEmployee"></span></a>
+						<a>名称<span class="mui-pull-right" id="name">CRM管理系统</span></a>
 					</li>
 					<li class="mui-table-view-cell">
-						<a>姓名<span class="mui-pull-right" id="name"></span></a>
+						<a>版本<span class="mui-pull-right" id="version">bate1.0</span></a>
 					</li>
 					<li class="mui-table-view-cell">
-						<a>性别<span class="mui-pull-right" id="sex"></span></a>
+						<a>开发人员<span class="mui-pull-right" id="person">谭周明</span></a>
 					</li>
 					<li class="mui-table-view-cell">
-						<a>电话<span class="mui-pull-right" id="telephone"></span></a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a>邮箱<span class="mui-pull-right" id="email"></span></a>
+						<a>电话<span class="mui-pull-right" id="telephone">18380461860</span></a>
 					</li>
 				</ul>
 			</div>
-		</div>
 			<script type="text/javascript">
 				function loadPage() {
 					var data=jQuery.parseJSON(localStorage.getItem("employee"));

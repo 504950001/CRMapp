@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/app.js"></script>
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+		</style>
+		<script>
+			mui.init();
+		</script>
+	</head>
+
+	<body onload="systemInfo();">
+
+		<style type="text/css">
+			#pull {
+				width: 24px;
+				height: 100%;
+				display: inline-block;
+				margin: 0 1em;
+			}
+			
+			#icon {
+				height: 24px;
+				vertical-align: middle;
+			}
+			
+			@-webkit-keyframes spin {
+				0% {
+					-webkit-transform: rotate(0deg);
+				}
+				100% {
+					-webkit-transform: rotate(360deg);
+				}
+			}
+		</style>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">系统信息</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-card">
+				<ul id="ul" class="mui-table-view">
+					<!--<li class="mui-table-view-cell">
+						<a>名称<span class="mui-pull-right" id="name">CRM管理系统</span></a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>版本<span class="mui-pull-right" id="version">bate1.0</span></a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>开发人员<span class="mui-pull-right" id="person">谭周明</span></a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>邮箱<span class="mui-pull-right" id="email">system@crm.com</span></a>
+					</li>-->
+				</ul>
+			</div>
+			<script type="text/javascript">
+				function systemInfo(){
+					//alert("systemInfo");
+					mui.ajax(serviceIP + "/CRMsystem/admin/getSystemInfo", {
+							dataType: 'json',
+							type: 'post',
+							contentType: "application/x-www-form-urlencoded; charset=utf-8",
+							success: function(data) {
+								var systemName = eval(data).systemName;
+								var sysVersion = eval(data).sysVersion;
+								var person = eval(data).person;
+								var email = eval(data).email;
+								localStorage.setItem("systemInfo", JSON.stringify(data));
+								var systemInfo = "<li class='mui-table-view-cell'><a>名称<span class='mui-pull-right'>"
+								+systemName+"</span></a></li><li class='mui-table-view-cell'><a>版本<span class='mui-pull-right'>"
+								+sysVersion+"</span></a></li><li class='mui-table-view-cell'><a>开发人员<span class='mui-pull-right'>"
+								+person+"</span></a></li><li class='mui-table-view-cell'><a>邮箱<span class='mui-pull-right'>"
+								+email+"</span></a></li>";
+								$("#ul").html(systemInfo);
+							},
+							error: function(XMLHttpRequest, textStatus, errorThrown) {
+								//alert("更新失败");
+								console.log("XMLHttpRequest:" + XMLHttpRequest + ",textStatus:" + textStatus + ",errorThrown:" + errorThrown);
+								var data=jQuery.parseJSON(localStorage.getItem("systemInfo"));
+								//var data=localStorage.getItem("systemInfo");错误
+								var systemName = eval(data).systemName;
+								var sysVersion = eval(data).sysVersion;
+								var person = eval(data).person;
+								var email = eval(data).email;
+								var systemInfo = "<li class='mui-table-view-cell'><a>名称<span class='mui-pull-right'>"
+										+systemName+"</span></a></li><li class='mui-table-view-cell'><a>版本<span class='mui-pull-right'>"
+										+sysVersion+"</span></a></li><li class='mui-table-view-cell'><a>开发人员<span class='mui-pull-right'>"
+										+person+"</span></a></li><li class='mui-table-view-cell'><a>邮箱<span class='mui-pull-right'>"
+										+email+"</span></a></li>";
+								$("#ul").html(systemInfo);
+						    }
+					});
+				}
+				function onloadInfo(){
+					if(localStorage.getItem("systemInfo")==null){
+						systemInfo();
+					}
+					else{
+						var data=jQuery.parseJSON(localStorage.getItem("systemInfo"));
+						//var data=localStorage.getItem("systemInfo");错误
+						var systemName = eval(data).systemName;
+						var sysVersion = eval(data).sysVersion;
+						var person = eval(data).person;
+						var email = eval(data).email;
+						var systemInfo = "<li class='mui-table-view-cell'><a>名称<span class='mui-pull-right'>"
+								+systemName+"</span></a></li><li class='mui-table-view-cell'><a>版本<span class='mui-pull-right'>"
+								+sysVersion+"</span></a></li><li class='mui-table-view-cell'><a>开发人员<span class='mui-pull-right'>"
+								+person+"</span></a></li><li class='mui-table-view-cell'><a>邮箱<span class='mui-pull-right'>"
+								+email+"</span></a></li>";
+						$("#ul").html(systemInfo);
+					}
+				}
+			</script>
+		</div>
+	</body>
+
+</html>
+

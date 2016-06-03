@@ -206,7 +206,8 @@
 			"js/app.js",
 			"js/mui.min.js",
 			"css/mui.min.css",
-			"pages/announcement/announcement-main.html"
+			"pages/announcement/announcement-main.html",
+			"pages/announcement/task-main.html"
 		],
 		"refer": [
 			"pages/pulldown-with-plus-main-custom.html",
@@ -223,7 +224,8 @@
 			"pages/announcement/report.html",
 			"pages/announcement/report-main.html",
 			"pages/announcement/task-main.html",
-			"pages/announcement/customer-main.html"
+			"pages/announcement/customer-main.html",
+			"pages/systemInfo.html"
 		]
 	},
 	"pages/views/index.html": {
@@ -319,7 +321,8 @@
 			"fonts/mui.ttf",
 			"js/app.js",
 			"js/mui.min.js",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"js/jquery-2.1.1.min.js"
 		],
 		"refer": []
 	},
@@ -368,7 +371,9 @@
 			"login.html",
 			"forget_password.html",
 			"setting.html",
-			"pages/userInfo.html"
+			"pages/userInfo.html",
+			"pages/systemInfo.html",
+			"pages/mapLocation.html"
 		]
 	},
 	"pulldown-with-plus-main-custom.html": {
@@ -507,7 +512,10 @@
 			"images/pull_arrow.png",
 			"pages/announcement/task-content.html",
 			"images/pull_fresh.png",
-			"fonts/mui.ttf"
+			"fonts/mui.ttf",
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
 		],
 		"refer": [
 			"pages/announcement/task-content.html"
@@ -560,6 +568,15 @@
 			"css/mui.min.css",
 			"js/app.js",
 			"js/jquery-2.1.1.min.js"
+		]
+	},
+	"pages/systemInfo.html": {
+		"resources": [
+			"js/jquery-2.1.1.min.js",
+			"js/app.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
 		]
 	}
 }

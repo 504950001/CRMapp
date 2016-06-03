@@ -3,7 +3,7 @@
  * 当您要参考这个演示程序进行相关 app 的开发时，
  * 请注意将相关方法调整成 “基于服务端Service” 的实现。
  **/
-var serviceIP = "http://192.168.191.4:8080";
+var serviceIP = "http://172.27.0.1:8080";
 
 function postData(url, data, callback) {
 	mui.ajax(url, {

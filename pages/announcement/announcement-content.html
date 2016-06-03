@@ -22,7 +22,7 @@
 		</script>
 	</head>
 
-	<body onload="loadPage();">
+	<body onload="announcement();">
 
 <script type="text/javascript" charset="utf-8">
 	var ws = null,wo = null;
@@ -69,26 +69,27 @@
 						localStorage.setItem("announcement", JSON.stringify(data));
 					},
 					error: function(XMLHttpRequest, textStatus, errorThrown) {
-						alert("获取失败");
+						//alert("获取失败");
 						console.log("XMLHttpRequest:" + XMLHttpRequest + ",textStatus:" + textStatus + ",errorThrown:" + errorThrown);
+						var announcementList ="";
+						var data=jQuery.parseJSON(localStorage.getItem("announcement"));
+						
+						if(data==null){announcement();console.log("如果localStorage里面为空，则连接到数据库中") ;}
+						$.each(data, function(index, item) {
+							//循环获取数据 
+						     var title = data[index].title; 
+						     var mydate = data[index].date; 
+						     var content = data[index].content; 
+						     var myContent="<li class='mui-table-view-cell'><div class='mui-table'><div class='mui-table-cell mui-col-xs-10'><h4 class='mui-ellipsis'>标题："+title+"</h4><h5>日期："+mydate+"</h5><p class='mui-h6 mui-ellipsis'>内容："
+						     +content+"</p></div></div></li>"
+						     announcementList+=myContent;
+						     $("#ul").html(announcementList);
+						});
 					}
 			});
     	}
     	function loadPage() {
-			var announcementList ="";
-			var data=jQuery.parseJSON(localStorage.getItem("announcement"));
 			
-			if(data==null){announcement();console.log("如果localStorage里面为空，则连接到数据库中") ;}
-			$.each(data, function(index, item) {
-				//循环获取数据 
-			     var title = data[index].title; 
-			     var mydate = data[index].date; 
-			     var content = data[index].content; 
-			     var myContent="<li class='mui-table-view-cell'><div class='mui-table'><div class='mui-table-cell mui-col-xs-10'><h4 class='mui-ellipsis'>标题："+title+"</h4><h5>日期："+mydate+"</h5><p class='mui-h6 mui-ellipsis'>内容："
-			     +content+"</p></div></div></li>"
-			     announcementList+=myContent;
-			     $("#ul").html(announcementList);
-			});
     	}
     </script>
 </div>
